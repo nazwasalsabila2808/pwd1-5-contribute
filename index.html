@@ -1,3 +1,73 @@
-Nama : Labtif
-Kelas : IF NR
-NPM : 5520124001
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tombol Scroll Up</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            height: 2500px; /* Membuat konten cukup panjang agar scroll > 2000px */
+            margin: 0;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        /* Tombol scroll ke atas */
+        #scrollToTopBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: darkorchid;
+            color: white;
+            border: none;
+            padding: 12px 16px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0; /* Awal tombol disembunyikan */
+            transition: opacity 0.3s ease;
+            z-index: 1000;
+        }
+
+        /* Hover efek tombol */
+        #scrollToTopBtn:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Tombol Scroll Up</h1>
+    <p>Scroll ke bawah lebih dari 500px, tombol akan muncul di kanan bawah halaman.</p>
+
+    <button id="scrollToTopBtn" title="Ke atas">&#8593;</button>
+
+    <script>
+        // Mendapatkan tombol
+        const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+        // Fungsi tampilkan tombol jika scroll lebih dari 500px
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 500) {
+                scrollToTopBtn.style.opacity = "0.7";
+                scrollToTopBtn.style.pointerEvents = "auto";
+            } else {
+                scrollToTopBtn.style.opacity = "0";
+                scrollToTopBtn.style.pointerEvents = "none";
+            }
+        });
+
+        // Fungsi scroll ke atas saat tombol di klik
+        scrollToTopBtn.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    </script>
+    
+    <script src="script.js"></script>
+
+</body>
+</html>
