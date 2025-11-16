@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tabel Perkalian Matriks</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <table id="perkalian"></table>
+
+    <script>
+        const table = document.getElementById('perkalian');
+
+        // Membuat header baris pertama: "bilangan" + angka 1-10
+        let headerRow = document.createElement('tr');
+
+        let thKosong = document.createElement('th');
+        thKosong.textContent = 'bilangan';
+        headerRow.appendChild(thKosong);
+
+        for(let i = 1; i <= 10; i++){
+            let th = document.createElement('th');
+            th.textContent = i;
+            th.classList.add('green');
+            headerRow.appendChild(th);
+        }
+        table.appendChild(headerRow);
+
+        // Membuat baris 1 sampai 10
+        for(let i = 1; i <= 10; i++){
+            let row = document.createElement('tr');
+
+            // Kolom pertama tiap baris = i dengan background hijau
+            let th = document.createElement('th');
+            th.textContent = i;
+            th.classList.add('green');
+            row.appendChild(th);
+
+            // Kolom isi perkalian matriks
+            for(let j = 1; j <= 10; j++){
+                let td = document.createElement('td');
+                let hasil = i * j;
+                td.textContent = hasil;
+
+                // Warna kuning untuk hasil perkalian yang ada di baris 1 atau kolom 1 selain header
+                if(i === 1 || j === 1){
+                    td.classList.add('yellow');
+                } 
+                // Warna oranye untuk angka kelipatan 3 atau 5 (tanda dari contoh gambar)
+                else if(hasil % 15 === 0){
+                    td.classList.add('orange');  // kelipatan 3 & 5 sekaligus
+                }
+                else if(hasil % 3 === 0){
+                    td.classList.add('orange');
+                }
+                else if(hasil % 5 === 0){
+                    td.classList.add('orange');
+                }
+                else{
+                    td.classList.add('cyan');
+                }
+                row.appendChild(td);
+            }
+            table.appendChild(row);
+        }
+    </script>
+</body>
+</html>

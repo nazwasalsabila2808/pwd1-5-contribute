@@ -1,0 +1,31 @@
+table {
+    border-collapse: collapse;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px 12px;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+}
+
+th.green {
+    background-color: #00FF00; /* Hijau terang */
+    border: 2px solid green;
+    font-weight: normal;
+}
+
+td.yellow {
+    background-color: #FFFF00; /* Kuning */
+}
+
+td.orange {
+    background-color: #FFCC00; /* Oranye */
+}
+
+td.cyan {
+    background-color: #00FFFF; /* Biru muda (cyan) */
+}
